@@ -1,11 +1,51 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
+  <%- include('partials/head.ejs') %>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+  <%- include('partials/header.ejs') %>
+  <div class="row">
+    <ul class="nav flex-column col-sm-3">
+      <li class="nav-item">
+        <a class="nav-link active" href="#">Active</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+      </li>
+    </ul>
+    <div class="row col-sm-9">
+        <div class="card col-sm-3">
+          <img src="/images/logo-netflix.png" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Netflix</h5>
+            <p class="card-text">Netflix</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+        <div class="card col-sm-3">
+          <img src="/images/logo-netflix.png" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Netflix</h5>
+            <p class="card-text">Netflix</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+        <div class="card col-sm-3">
+          <img src="/images/logo-netflix.png" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Netflix</h5>
+            <p class="card-text">Netflix</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+    </div>
+  </div>
+
+  <%- include('partials/scripts.ejs') %>  
   </body>
 </html>
