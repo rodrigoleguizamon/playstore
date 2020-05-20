@@ -1,5 +1,5 @@
 module.exports = (sequelize, dataTypes) => {
-    let alias = "Application";
+    let alias = "applications";
     let cols = {
         id: {
             type: dataTypes.INTEGER,
@@ -49,8 +49,8 @@ module.exports = (sequelize, dataTypes) => {
     }
 
 
-const Application = sequelize.define(alias,cols,config);
+const applications = sequelize.define(alias,cols,config);
 
-return Application;
+return applications;
 
 }

@@ -4,44 +4,40 @@
   <body>
   <%- include('partials/header.ejs') %>
   <div class="row">
-    <ul class="nav flex-column col-sm-2">
-      <li class="nav-item">
-        <a class="nav-link active" href="#">Active</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-      </li>
-    </ul>
-    <div class="row col-sm-9" id="cards">
-        <div class="card col-sm-3">
-          <img src="/images/logo-netflix.png" class="card-img-top" id="card">
-          <div class="card-body">
-            <h5 class="card-title">Netflix</h5>
-            <p class="card-text">Netflix</p>
+    
+      <div class="btn-group-vertical col-sm-2">
+          <button type="button" class="btn btn-outline-success">Apps</button>
+          <button type="button" class="btn btn-outline-danger">Películas</button>
+          <button type="button" class="btn btn-outline-warning">Música</button>
+          <button type="button" class="btn btn-outline-primary">Libros</button>
+          <a href="/"><p >Cuenta</p></a>
+          <a href="/"><p>Formas de pago</p></a>
+          <a href="/"><p>Guia</p></a>
+      </div>
+      
+  
+    <div class="row col-sm-9" style="background-color: lightgrey;">
+      <div class="container products-wrapper">
+        <div class="row">
+          <div class="col-12">
+            <h2 class="products-title">Apps</h2>
           </div>
+
+         <%- include('partials/app') %>
+         <%- include('partials/app') %>
+         <%- include('partials/app') %>
+         <%- include('partials/app') %>
+         <%- include('partials/app') %>
+         <%- include('partials/app') %>
+         <%- include('partials/app') %>
+         <%- include('partials/app') %>
         </div>
-        <div class="card col-sm-3">
-          <img src="/images/logo-netflix.png" class="card-img-top" id="card">
-          <div class="card-body">
-            <h5 class="card-title">Netflix</h5>
-            <p class="card-text">Netflix</p>
-          </div>
-        </div>
-        <div class="card col-sm-3">
-          <img src="/images/logo-netflix.png" class="card-img-top" id="card">
-          <div class="card-body">
-            <h5 class="card-title">Netflix</h5>
-            <p class="card-text">Netflix</p>
-          </div>
-        </div>
+      </div>
+      
     </div>
+    
   </div>
+  
 
   <%- include('partials/scripts.ejs') %>  
   </body>
