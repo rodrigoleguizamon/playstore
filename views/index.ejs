@@ -3,7 +3,7 @@
   <%- include('partials/head.ejs') %>
   <body>
   <%- include('partials/header.ejs') %>
-  <div class="row">
+  <div class="row" ;">
     
       <div class="btn-group-vertical col-sm-2">
           <button type="button" class="btn btn-outline-success">Apps</button>
@@ -14,27 +14,31 @@
           <a href="/"><p>Formas de pago</p></a>
           <a href="/"><p>Guia</p></a>
       </div>
+      <div class="col-sm-9" style="background-color: lightgrey" >
+        <div><h2 class="products-title">Apps</h2></div>
       
-  
-    <div class="row col-sm-9" style="background-color: lightgrey;">
-      <div class="container products-wrapper">
-        <div class="row">
-          <div class="col-12">
-            <h2 class="products-title">Apps</h2>
+        <section class="app-list" style="background-color: lightgrey" >
+          <% applications.forEach(function(applications) {%>
+            <div>
+            <%- include('partials/app.ejs',{applications:applications}) %>
           </div>
-
-         <%- include('partials/app') %>
-         <%- include('partials/app') %>
-         <%- include('partials/app') %>
-         <%- include('partials/app') %>
-         <%- include('partials/app') %>
-         <%- include('partials/app') %>
-         <%- include('partials/app') %>
-         <%- include('partials/app') %>
-        </div>
+            <% }) %>
+        </section>
+        <section class="app-list" style="background-color: lightgrey" >
+          <% applications.forEach(function(applications) {%>
+            <div>
+            <%- include('partials/app.ejs',{applications:applications}) %>
+          </div>
+            <% }) %>
+        </section>
+        <section class="app-list" style="background-color: lightgrey" >
+          <% applications.forEach(function(applications) {%>
+            <div>
+            <%- include('partials/app.ejs',{applications:applications}) %>
+          </div>
+            <% }) %>
+        </section>
       </div>
-      
-    </div>
     
   </div>
   

@@ -9,12 +9,10 @@ module.exports = (sequelize, dataTypes) => {
         },
         user_id : {
             type: dataTypes.INTEGER,
-            autoIncrement: true,
             allowNull: false
         },
         application_id: {
             type: dataTypes.INTEGER,
-            autoIncrement: true,
             allowNull: false
         },
         price: {

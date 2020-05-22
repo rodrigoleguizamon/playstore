@@ -1,7 +1,7 @@
 module.exports={
   "development": {
     "username": "root",
-    "password": "Sofi1310",l,
+    "password": "Sofi1310",
     "database": "db_playstore",
     "host": "127.0.0.1",
     "dialect": "mysql",
