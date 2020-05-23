@@ -1,9 +1,12 @@
 
 
-    <div class="producto" style="width: 10rem;background-color: white;">
-        <img src="<%=applications.image_url%>"" class="card-img-top" alt="imagen de producto">
+    <div class="producto" >
+        
         <div class="card-body">
-          <h5 class="card-title"><%= applications.name%></h5>
-          <p class="card-text">$<%= applications.price%></p>
+          <img src="<%=applications.image_url%>"" class="card-img-top" alt="imagen de producto">
+          <div class="card-p">
+            <h5 class="card-title"><%= applications.name%></h5>
+            <p class="card-text">$<%= applications.price%></p>
+          </div>
         </div>
       </div>
