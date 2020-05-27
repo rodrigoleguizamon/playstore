@@ -10,6 +10,7 @@ var devMiddleware = require('./middlewares/devMiddleware');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var appsRouter = require('./routes/apps');
 
 
 var app = express();
@@ -29,6 +30,8 @@ app.use(devMiddleware);
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/apps', appsRouter);
+
 
 
 

@@ -12,9 +12,18 @@ const appsControllers= {
                 })
                         
         },
-
+        create:function(req,res){
+            db.Category.findAll()
+                .then(function(data){
+                    return res.render('apps/create',{categorias:data})
+                })
+                .catch(err => {
+                    res.send('Hubo un error probar mas tarde')
+                })
+                        
+        },
     
-        crear:function(req,res){
+        guardar:function(req,res){
         
             db.Application.create({
                 name: req.body.name,
@@ -22,7 +31,7 @@ const appsControllers= {
                 description: req.body.description,
                 image_url: req.body.image_url,
                 price: req.body.price,
-                user_id: user.name
+                user_id: 1
             })
             .then(function(data){
                 return res.redirect('apps/admin')
