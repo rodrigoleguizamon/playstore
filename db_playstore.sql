@@ -5,6 +5,7 @@ create table users(
 	name varchar(95) NOT NULL,
 	email varchar(95) NOT NULL,
 	password varchar(95) NOT NULL,
+	user_type tinyint NOT NULL,
 	created_at timestamp NULL DEFAULT NULL,
 	updated_at timestamp NULL DEFAULT NULL,
 	PRIMARY KEY (id)
