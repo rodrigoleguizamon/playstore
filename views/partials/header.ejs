@@ -1,11 +1,9 @@
 
     <nav class="navbar" >
         <div class="logo">
-            <img src="./images/logo-playstore.jpg" style="width: auto; height: 40px;" href="/" alt="">
-            <a class="navbar-brand" href="#"><img src="/public/images/logo-playstore.jpg" alt=""></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-            </button>
+            
+            <a class="navbar-brand" href="/" alt=""><img src="./images/logo-playstore.jpg" style="width: auto; height: 40px;" href="/" alt=""></a>
+            
         </div>
 
         <div class="buscador">
@@ -14,22 +12,36 @@
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
             </form> 
         </div>
-        <div>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">  
-                    <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Perfil
+        
+        <ul>
+                <% if(isAuthenticated) { %>
+                  
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="/users/perfil" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <span class="user-badge">
+                        <span class="user-name"><%= user.name%></span>
+                      </span>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Modificar datos personales</a>
-                        <a class="dropdown-item" href="#">Modicar password</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Cerrar sesión</a>
+                      <a class="dropdown-item" href="/users/perfil">Modicar datos</a>
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="#">Cerrar sesión</a>
                     </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
+                  </li>
+              <% } else { %>
+                <li class="nav-item">
+                  <a class="nav-link" href="/users/login">Ingresar</a>
+                </li>
+              <% } %>
+              
+              <% if(user.user_type == "1") { %>
+                <li class="nav-item">
+                  <a class="nav-link" href="/crear">Nueva APP</a>
+                </li>
+                <% } %>
+              
+               
+        </ul>
+       
         <br>
     </nav>
