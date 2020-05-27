@@ -14,7 +14,7 @@ const indexControllers = {
     crear: function(req,res){
         db.Category.findAll()
         .then(function(categorias){
-            return res.render('create',{categorias:categorias})
+            return res.render('apps/create',{categorias:categorias})
         })
     },
 }

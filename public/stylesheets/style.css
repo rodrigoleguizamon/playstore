@@ -10,6 +10,64 @@
 .navbar{
   display: flex;
 }
+
+/*----------------*/
+.main-header{
+  background-color: #008000;
+  height: 70px;
+  padding: 10px;
+}
+.logo img{
+  height: 30px;
+  width: 50px;
+  float: left;
+}
+.barra{
+  background-color: whitesmoke; 
+  justify-content: flex-end;
+  display: flex;
+  height: 100%;
+}
+.user-badge {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 2rem;
+  background-color: #008000;
+  height: 50%;
+  color:white;
+  padding:2px
+}
+
+.user-badge .user-image {
+  border-radius: 50%;
+  height: 2rem;
+  width: 2rem;
+}
+
+.user-badge .user-name {
+  margin: 0 .5rem;
+}
+.menu{
+  position: relative;
+  top: 22%;
+  float: right;
+}
+.menu a{
+  text-decoration: none;
+  color: black;
+}
+.pagina-actual{
+  background-color: rgb(226, 216, 216);
+  padding: 20px 10px;
+}
+.main-header nav ul li{
+  position: relative;
+  float: left;
+  list-style-type: none;
+  padding: 5px;
+}
+
+/**********************************/
 /*---Buttons Home--*/
 .btn-group-vertical{
   display: list-item;
@@ -22,18 +80,22 @@
 .btn btn-outline-success{
   border: none;
   width: 80%;
+  border-radius: 0px;
 }
 .btn btn-outline-danger{
   border: none;
   width: 80%;
+  border-radius: 0px;
 }
 .btn btn-outline-warning{
   border: none;
-  width: 80%
+  width: 80%;
+  border-radius: 0px;
 }
 .btn btn-outline-primary{
   border: none;
-  width: 80%
+  width: 80%;
+  border-radius: none;
 }
 /*---card app----*/
 .container-apps{
@@ -120,5 +182,17 @@
   position: relative;
   left: 25%;
   top: 40px;
+ 
+}
+
+/* CSS formulario de registro*/
+.form-register{
+  width: 50%;
+  margin-bottom: 30px;
+  padding: 15px;
+  border-radius: 10px;
+  background: whitesmoke;
+  position: relative;
+  left: 25%;
  
 }
