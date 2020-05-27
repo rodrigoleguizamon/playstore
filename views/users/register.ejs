@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+    <%- include('../partials/head.ejs') %>
+    
+<body>
+    <main>
+        <form action="/users/register" method="POST" class="form-register">
+            <div class="form-group">
+                <% if (typeof errors != 'undefined'){ %>
+                    <h4 style="color:red">ERROR</h4>
+                    <ul>
+                        <% for(let i= 0; i < errors.length; i++){ %>
+                            <li>
+                                <%= errors[i].msg %>
+                            </li>
+
+                        <% } %>
+                    </ul>
+                <% } %>
+                <label for="">Ingrese su Nombre:</label>
+                <input type="text" id="name" name="name" class="form-control" 
+                    value="<%= typeof data != 'undefined' ? data.name: '' %>">
+                <label for="">Ingrese su email:</label>
+                <input type="text" id="email" name="email" class="form-control" 
+                    value="<%= typeof data != 'undefined' ? data.email: '' %>">
+            </div><br>
+            <div class="form-group">
+                <label for="password">Ingrese una clave:</label>
+                <input type="password" id="password" name="password" class="form-control" 
+                value="<%= typeof data != 'undefined' ? data.password: '' %>">
+            </div><br>
+
+            
+            <div class="form-group">
+                <label for="user_type">Soy desarrollador</label>
+            <input type="checkbox" id="user_type " name="user_type">
+            </div><br>
+            <div class="form-group">
+                <button class="btn btn-outline-success" type="submit" >Registrarse</button>
+            </div>
+        </form>
+        </main>
+    <%- include('../partials/scripts.ejs') %>
+</body>
+</html>

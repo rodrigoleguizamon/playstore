@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+    <%- include('../partials/head.ejs') %>
+
+<body>
+    <%- include('../partials/header.ejs') %>
+    <form action="/users/login" method="POST" class="form-login">
+        <div class="form-group">
+            <% if (typeof errors != 'undefined'){ %>
+                <h4 style="color:red">ERROR</h4>
+                <ul>
+                    <% for(let i= 0; i < errors.length; i++){ %>
+                        <li>
+                            <%= errors[i].msg %>
+                        </li>
+
+                    <% } %>
+                </ul>
+            <% } %>
+            <label for="">Ingrese su email</label>
+            <input type="email" name="email" class="form-control" 
+                   value="<%= typeof data != 'undefined' ? data.email: '' %>"><br>
+        </div>
+        <div class="form-group">
+            <label for="">Ingrese su clave</label>
+            <input type="password" name="password" class="form-control" 
+            value="<%= typeof data != 'undefined' ? data.password: '' %>"><br>
+        </div>
+        <div class="form-group">
+            <button class="btn btn-outline-success" value="login" ><a style="text-decoration:none; color: black;">Loguearse</a></button>
+        </div>
+    </form>
+    <%- include('../partials/scripts.ejs') %>
+</body>
+</html>
