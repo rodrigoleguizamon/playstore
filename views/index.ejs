@@ -20,28 +20,38 @@
           <a href="/"><p>Guia</p></a>
       </div>
       <div class="container-apps col-sm-10" style="background-color: #eee" >
-        <div><h2 class="products-title">Apps</h2></div>
+        <div><h2 class="products-title">Juegos</h2></div>
       
         <section class="app-list" >
           <% applications.forEach(function(applications) {%>
-            <div>
-            <%- include('partials/app.ejs',{applications:applications}) %>
-          </div>
-            <% }) %>
+            <% if(applications.categories.name === "Juegos"){%>
+              <div>
+                <%- include('partials/app.ejs',{applications:applications}) %>
+              </div>
+            <% } %>
+          <% }) %>
         </section>
-        <section class="app-list">
+
+        <div><h2 class="products-title">Compras</h2></div>
+        <section class="app-list" >
           <% applications.forEach(function(applications) {%>
-            <div>
-            <%- include('partials/app.ejs',{applications:applications}) %>
-          </div>
-            <% }) %>
+            <% if(applications.categories.name === "Compras"){%>
+              <div>
+                <%- include('partials/app.ejs',{applications:applications}) %>
+              </div>
+            <% } %>
+          <% }) %>
         </section>
-        <section class="app-list">
+        
+        <div><h2 class="products-title">Comunicación</h2></div>
+        <section class="app-list" >
           <% applications.forEach(function(applications) {%>
-            <div>
-            <%- include('partials/app.ejs',{applications:applications}) %>
-          </div>
-            <% }) %>
+            <% if(applications.categories.name === "Comunicación"){%>
+              <div>
+                <%- include('partials/app.ejs',{applications:applications}) %>
+              </div>
+            <% } %>
+          <% }) %>
         </section>
       </div>
     
