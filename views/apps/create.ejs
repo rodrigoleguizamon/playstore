@@ -9,7 +9,7 @@
 				<div class="col">
                     <h2 class="encabezado">Agregar Aplicación</h2>     
 					
-                    <form action="/crear" method="POST" class="form-crear">
+                    <form action="/apps/create" method="POST" class="form-crear">
                         <div class="form-group">
                             <label for="name">Nombre</label>
                             <input type="text" class="form-control" id="name" name="name">
@@ -17,9 +17,9 @@
 						<div class="form-group">
 						  <label for="category" >Categoría</label>
 						  <div>
-                            <select name="category" >
+                            <select name="category">
                                 <% for(i = 0; i < categorias.length; i++){ %>
-                                    <option value="<%= categorias[i].id %>">
+                                    <option value="<%= categorias[i].id %>" id="category" name="category" >
                                         <%= categorias[i].name %>
                                     </option>
                                 <% } %>
@@ -28,7 +28,7 @@
 						</div>
 						<div class="form-group">
 							<label for="description">Descripción</label>
-							<input type="text" class="form-control" id="description" name="description">
+							<textarea class="form-control" id="description" name="description"></textarea>
 						</div>
 						<div class="form-group">
 							<label for="price">Precio</label>
@@ -36,7 +36,7 @@
 						</div>
 						<div class="form-group">
 							<label for="image_url">Seleccione una imagen</label>
-						<input type="file" name="image_url" id="image_url"class="form-control" style="border: none;">
+						<input type="text" name="image_url" id="image_url"class="form-control" style="border: none;">
 						</div><br>
 						
 						<button type="submit" class="btn btn-primary">Guardar</button>

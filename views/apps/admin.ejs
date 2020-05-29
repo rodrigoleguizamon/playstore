@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <%- include('../partials/head.ejs') %>
+    </head>
+    <body>
+        <%- include('../partials/header.ejs') %>
+        <main>
+		<div class="container">
+        <div class="row">
+		<div class="col">
+        <h2 class="encabezado">Administrar APPS</h2>     
+			
+		<a href='/apps/create'><button class="botones">Agregar</button></a>
+		<br><br>          
+        
+		<table class="tabla">
+		<thead>
+			<tr>
+			<th style="padding: 5px;" >Categoria </th>
+			<th style="padding: 5px;">Nombre </th>
+			<th style="padding: 5px;" >Descripcion </th>
+			<th style="padding: 5px;" >Precio Unitario </th>
+			</tr>
+		</thead>
+
+		<tbody>
+		<% apps.forEach(app => {%>
+			<tr>
+			<td style="padding: 5px;"><%= app.category_id %> </td>
+			<td style="padding: 5px;"><%= app.name %> </td>
+			<td style="padding: 5px;"><%= app.description %> </td>
+			<td style="padding: 5px;"><%= app.price %> </td>
+			<td>
+			<a href='editar/<%= app.id %>'><button class="botones">Editar</button></a>
+			</td>
+			<td>
+			<form action="/apps/admin/<%=app.id%>" method="POST">
+			<button class="botones">Borrar</button>
+			</form>
+			</td>
+			</tr>
+		<% }) %>
+	
+		</tbody>
+
+		</table>
+
+
+		</div>
+	    </div>
+</div>          
+        </main>
+        <hr>
+
+        <%- include('../partials/scripts.ejs') %>
+        
+    </body>
+</html>

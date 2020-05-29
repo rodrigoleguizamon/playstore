@@ -3,7 +3,10 @@ let db = require('../database/models');
 
 const appsControllers= {   
         admin: function(req,res){
-            db.Application.findAll()
+            db.Application.findAll({
+                where:{user_id: res.locals.user.id },
+                include:[{association:'categories'}],
+            })
                 .then(function(data){
                     return res.render('apps/admin',{apps:data})
                 })
@@ -31,10 +34,10 @@ const appsControllers= {
                 description: req.body.description,
                 image_url: req.body.image_url,
                 price: req.body.price,
-                user_id: 1
+                user_id: res.locals.user.id
             })
             .then(function(data){
-                return res.redirect('apps/admin')
+                return res.redirect('/')
                 
             })
             .catch(err => {
@@ -44,8 +47,11 @@ const appsControllers= {
             })
         },
     
-        editar: function(req,res){
-            db.Application.findByPk(req.params.id)
+        edit: function(req,res){
+            db.Application.findAll({
+                where:{id: req.params.id },
+                include:[{association:'categories'}]
+            })
                 .then(
                     function(application){
                         res.render('apps/edit',
@@ -54,7 +60,7 @@ const appsControllers= {
                 )
         },
 
-        actualizar:function(req,res){
+        update:function(req,res){
             // agregar cambios a la base para el producto editado
             db.Application.update({
                 name: req.body.name,
@@ -62,7 +68,7 @@ const appsControllers= {
                 description: req.body.description,
                 image_url: req.body.image_url,
                 price: req.body.price,
-                user_id: user.name
+                user_id: res.locals.user.id
             }, {
                 where: {
                     id: req.params.id

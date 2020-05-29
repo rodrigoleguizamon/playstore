@@ -2,7 +2,9 @@ let db = require("../database/models");
 
 const indexControllers = {
     listar: function(req,res){
-        db.Application.findAll()
+        db.Application.findAll({
+            include: [{association:"categories"}]
+        })
             .then(function(data){
                 return res.render('index', {applications:data})
             })
@@ -11,12 +13,7 @@ const indexControllers = {
             })
             
     },
-    crear: function(req,res){
-        db.Category.findAll()
-        .then(function(categorias){
-            return res.render('apps/create',{categorias:categorias})
-        })
-    },
+  
 }
 
 module.exports = indexControllers;
