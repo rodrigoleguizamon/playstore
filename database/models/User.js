@@ -41,6 +41,20 @@ module.exports = (sequelize, dataTypes) => {
 
 const User = sequelize.define(alias,cols,config);
 
+/*User.associate = function(models){
+    User.belongsTo(models.Application,{
+         as: "applications",
+         throught: "orders",
+         foreignKey: "user_id",
+         otherKey: "application_id",
+         timestamps: false
+     })
+     User.belongsTo(models.Application,{
+        as: "app_create",
+        foreignKey: "user_id",
+        timestamps: false
+    });
+}*/
 return User;
 
 }
