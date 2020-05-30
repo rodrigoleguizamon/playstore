@@ -103,6 +103,7 @@
   margin: 0;
   padding: 0;
   padding-left: 5%;
+  padding-right: 10%;
 }
 .app-list{
   width: 100%;
@@ -131,8 +132,8 @@
     font-size: 13px;
     font-weight: 300;
     line-height: 17px;
-    height: 330px;
-    width: 160px;
+    height: 300px;
+    width: 140px;
 }
 .card-body{
   display: table;
@@ -151,8 +152,8 @@
   border: 0;
   margin: 0;
   padding: 0;
-  width: 160px; 
-  height: 230px;
+  width: 140px; 
+  height: 200px;
   display: inline-block;
 
 }
@@ -196,3 +197,58 @@
   left: 25%;
  
 }
+
+/* CSS detalle-productos*/
+
+body{
+  width: 100%;
+}
+.container-fluid{
+  padding: 0;
+}
+section{
+  width: 100%;
+  background-color: white;
+  display: flex;
+  flex-wrap: wrap;
+
+}
+section.row{
+  margin: 0;
+}
+article{
+  width: 50%;
+  background: white;
+  margin-bottom: 30px;
+  align-self: stretch;
+  
+}
+article h1{
+  margin: 5%;
+}
+article h4{
+  margin: 6% 3%;
+}
+
+article img{
+  width: 90%;
+  border-radius: 10%;
+}
+article p{
+  width: 50%;
+  margin: 10% 5%;
+}
+article button{
+  margin-left: 50%;
+}
+.productos{
+  width: 100%;
+  background-color: whitesmoke;
+  justify-content: flex-end;
+  display: flex;
+
+}
+#art2{
+  align-self: stretch;
+}
+/* FIN CSS detalle-productos*/
