@@ -50,13 +50,13 @@ module.exports = function(sequelize, dataTypes){
 const Application = sequelize.define(alias,cols,config);
 
 Application.associate = function(models){
-   /*Application.belongsTo(models.User,{
+    Application.belongsToMany(models.User,{
         as: "users",
-        throught: "orders",
+        through: "orders",
         foreignKey: "application_id",
         otherKey: "user_id",
-        timestamps: false
-    })*/
+        timestamps:false
+    })
     Application.belongsTo(models.Category,{
         as: "categories",
         foreignKey: "category_id",
@@ -65,8 +65,7 @@ Application.associate = function(models){
     });
     /*Application.belongsTo(models.User,{
         as: "desarollador",
-        foreignKey: "id",
-        timestamps: false
+        foreignKey:"id"
     });
     Application.belongsTo(models.Comment,{
         as: "comentarios",
