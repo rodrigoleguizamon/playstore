@@ -33,7 +33,7 @@ const usersControllers= {
                 password: bcrypt.hashSync(req.body.password, 10),
                 user_type: !req.body.user_type ? "0" : "1"
               });
-            return res.send("OK");
+            return res.render('./users/login')
             }
           })
         }else{
@@ -54,6 +54,7 @@ const usersControllers= {
           .then(user => {
             var result = bcrypt.compareSync(req.body.password, user.password);
             if (result) {
+              delete user.password;
               req.session.user = user;
               req.session.user_type = req.session.user.user_type
               res.locals.user = req.session.user;
@@ -73,6 +74,10 @@ const usersControllers= {
         res.render("./users/login", { errors: errors.errors, data: req.body });
       }
     },
+    logout:function(req,res){
+      req.session.destroy()
+      res.redirect('/')
+    }
 }
 
 module.exports = usersControllers;

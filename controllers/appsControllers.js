@@ -1,4 +1,5 @@
 let db = require('../database/models');
+let Sequelize = db.sequelize;
 
 
 const appsControllers= {   
@@ -100,20 +101,15 @@ const appsControllers= {
             db.Application.destroy({
                 where: {
                 id: req.params.id
-            }}).then(function(req,res){
-                db.Application.findAll({
-                    where:{user_id: res.locals.user.id },
-                    include:[{association:'categories'}],
-                })
+            }
+        })
                     .then(function(data){
                         return res.redirect('apps/admin',{apps:data})
                     })
                     .catch(err => {
                         res.send('Hubo un error probar mas tarde')
                     })
-            })
-            
-                res.redirect('/apps/admin',)
+                
         },
     
         mostrarDetalleProducto: function(req,res){
@@ -136,7 +132,7 @@ const appsControllers= {
                     })
             })
             .then(function(data){
-                return res.redirect('apps/myApps')
+                return res.redirect('/apps/myApps')
                 
             })
             .catch(err => {
@@ -146,22 +142,25 @@ const appsControllers= {
             })
         },
         appsList: function(req,res){
-            db.User.findAll({
-                where:{id: res.locals.user.id },
-                include:[{association:"myApps"}]
+            db.Application.findAll({
+            include:[{association:"categories"},{association:"usuarios"}],
+                
+                raw:true,
+                nest:true
             })
             .then(function(data){
-                db.Application.findAll({
-                    include:[{association:"myApps"}]
+                let apps = []
+                JSON.stringify(data)
+                for(let i = 0; i < data.length; i++){
+                    if(data[i].usuarios.id == res.locals.user.id){
+                        apps.push(data[i])
+                    }
+                }
+                return res.render('apps/myApps',{apps:apps})
                 })
-                    .then(function(data){
-                    return res.render('apps/myApps',{orders:data})
-                    })
-                    .catch(err => {
-                        res.send('Hubo un error probar mas tarde')
-                    }) 
-            })      
-        },
-
+                .catch(err => {
+                   res.send('Hubo un error probar mas tarde'+err)
+                })      
+            }
 }
 module.exports= appsControllers;
