@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <%- include('../partials/head.ejs') %>
+  <body>
+  <%- include('../partials/header.ejs') %>
+  <div class="row">
+    
+      <div class="btn-group-vertical col-sm-2">
+        <div><a href="/"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAQAAAD9CzEMAAAAWUlEQVR42u2VMQ4AIAjEeCL/X3gK7sZDGRhM2tGcdhHODAAOpGfkTqR3M/p5hXcyWhDycnQyWlDQyVwF1dlLBgGCyW86PmjTq2J82QGNRqOxrhHQaDQawKcsBeDBfV6+UwYAAAAASUVORK5CYII=" style="background-color: green;width: 20%;"><button type="button" class="btn btn-outline-success" style="border: none;
+          width: 70%">Apps</button></a></div>
+        <div><a href="/peliculas"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwAQAAAAB/ecQqAAAAAnRSTlMAAHaTzTgAAAAcSURBVHgBYyAX8P8Hgg9EUfxAEis1cPoIU2QCAG+uk23sAfY5AAAAAElFTkSuQmCC" style="background-color: red;width: 20%;"><button type="button" class="btn btn-outline-danger" style="border: none;
+          width: 70%" >Películas</button></a></div>
+         <div><a href="/musica"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAABfElEQVR4Ae2ZAYbDQBhGC6sKqA20QO4TsIDsJVIQssg5FkCaK6wFyQUWgqUBIBdIAyC+/RAWGEkyf/K35vEoJZ1HMp3M7Bx2cDgA+DSiV1rQG+3offhcDN9F1NcyaI+mtMJ0KppSb4uBH2hCWyynpQk9rDX4gDawT0MD6cHHtIccPY0lBr6nGdYjo3ubARnWJ7N522xFbOOB7bEdPQ2WTJUNtqehhzkBCfSQzPmHbWEBw29MoaXelICUQkvAQDoloFIYUE1ZVUJbwIA/JuAiEQDgg/78O4toTEAuFPCJ5eRjAkrFAeWYgFpxQD0moFMc0D16wF36FmpoSM/0SN8tB9wkH+KGvhquayOgkJxGwx0RDriOCYgwj9MKAZHkUuJsvi6+sRxfcjEXGq53tDC7VXLLacNDDOCFfmE5qcALjXEaPdE3+mtp9857/ldK/S/1z7+tom9jy20t6t/c1b+97g44dB0xuUM+8yr2QnNa0pp2gzUtaW73mNXhcPwB2H7id+tLjI0AAAAASUVORK5CYII=" style="background-color: orange;width: 20%;"><button type="button" class="btn btn-outline-warning"style="border: none;
+          width: 70%"   >Música</button></a></div>
+          <div><a href="/libros"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAfUlEQVR4Ae3ZAQbAMAyF4d1jl81lerQW7A5bhgdFzYJ6/D8BpfIByEFE6+5iP/7vOS3ndAWoSwhHgGrugGELUAAAAABQa/or3nEEaHkVVgAtPxUWgCyWbwaAUgAAAAAAAACALQEAAAAAAAAAAADo7oDmDNCRzw4wvp9ZiegBEmdtC8IUeXkAAAAASUVORK5CYII=" style="background-color: blue;width: 20%;"><button type="button" class="btn btn-outline-primary" style="border: none;
+            width: 70%" >Libros</button></a></div>
+          
+          <a href="/apps/myApps"><p >Cuenta</p></a>
+         
+      </div>
+      <div class="container-apps col-sm-10" style="background-color: #eee" >
+        <div class="row" ><h2 class="products-title" >Películas</h2></div>
+      
+        <section class="app-list" >
+          <% applications.forEach(function(applications) {%>
+            <% if(applications.categories.name === "Peliculas"){%>
+              <div>
+                <%- include('../partials/app.ejs',{applications:applications}) %>
+              </div>
+            <% } %>
+          <% }) %>
+        </section>
+      </div>
+    
+  </div>
+  
+
+  <%- include('../partials/scripts.ejs') %>  
+  </body>
+</html>
