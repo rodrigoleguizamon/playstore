@@ -49,10 +49,6 @@ User.associate = function(models){
          otherKey: "application_id",
          timestamps:false
      })
-    /*User.hasMany(models.Application,{
-        as: "app_create",
-        foreignKey: "user_id"
-    });*/
 }
 return User;
 
