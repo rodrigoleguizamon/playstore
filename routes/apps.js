@@ -12,7 +12,7 @@ router.get('/edit/:id',appsControllers.edit)
 router.post('/edit/:id',appsControllers.update)
 router.post('/admin/:id',appsControllers.delete)
 router.get('/detail/:id',appsControllers.detail)
-router.get('/order/:id',appsControllers.order)
+router.post('/order/:id',appsControllers.order)
 router.get('/myApps',appsControllers.appsList)
 
 

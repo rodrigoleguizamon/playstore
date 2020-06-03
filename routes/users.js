@@ -32,6 +32,8 @@ router.post('/login',[
 
 ], usersControllers.ingresar) 
 
+router.get('/logout', usersControllers.logout)
+
 
 
 module.exports = router;
