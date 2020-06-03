@@ -16,12 +16,12 @@
                         <article class="col-6" id="art2">
                             <h1><%=  application.name  %></h1>
                             <p class="description">Descripción: <%=  application.description  %></p>
-                            <form action="carrito" method="POST">
-                                <button type="button" href="/apps/order/<%=application.id%>"class="btn btn-outline-success" style="background-color:  #008000; color: white;">Comprar</button>
+                            <form action="/apps/order/<%=application.id%>" method="POST">
+                                <button type="submit" class="btn btn-outline-success" style="background-color:  #008000; color: white;">Comprar</button>
                             </form>
                         </article>
                         <article class="col-6" id="art3">
-                            <img src="<%= application.image_url %>" alt="manzanas">
+                            <img src="<%= application.image_url %>" alt="<%= application.name %>">
                         </article>
                 </div>
             </section> <br>

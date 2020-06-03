@@ -25,7 +25,7 @@
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                       <a class="dropdown-item" href="/users/perfil">Modicar datos</a>
                       <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="#">Cerrar sesión</a>
+                      <a class="dropdown-item" href="/users/logout">Cerrar sesión</a>
                     </div>
                   </li>
                   <% if(user.user_type == "1") { %>
@@ -36,6 +36,9 @@
               <% } else { %>
                 <li class="nav-item">
                   <a class="nav-link" href="/users/login">Ingresar</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/users/register">Registrarse</a>
                 </li>
               <% } %>
               
