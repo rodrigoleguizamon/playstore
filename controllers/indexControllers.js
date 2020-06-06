@@ -1,4 +1,6 @@
 let db = require("../database/models");
+let Sequelize = db.sequelize;
+const Op = Sequelize.Op
 
 const indexControllers = {
     listar: function(req,res){
@@ -49,6 +51,28 @@ const indexControllers = {
             })
             
     },
+    search: function(req,res){
+        db.Application.findAll({
+            include: [{association:"categories"}],
+            where: {
+
+                [db.Sequelize.Op.or]: [
+                    {
+                      name: {
+                        [db.Sequelize.Op.like]: '%'+ req.body.palabra + '%'
+                      }
+                    },
+                    {
+                      description: {
+                        [db.Sequelize.Op.like]: '%'+ req.body.palabra + '%'
+                      }
+                    },
+                  ]
+            }
+        }).then(function(apps){
+            res.render('search',{applications:apps})
+        })
+    }
   
 }
 

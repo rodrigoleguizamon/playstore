@@ -1,5 +1,6 @@
 let db = require('../database/models');
 let Sequelize = db.sequelize;
+const Op = Sequelize.Op
 
 
 const appsControllers= {   
@@ -16,7 +17,7 @@ const appsControllers= {
                 })
                         
         },
-        create:function(req,res){
+        create:function(req,res,next){
             db.Category.findAll()
                 .then(function(data){
                     return res.render('apps/create',{categorias:data})
@@ -28,12 +29,12 @@ const appsControllers= {
         },
     
         guardar:function(req,res){
-        
+            console.log(req)
             db.Application.create({
                 name: req.body.name,
                 category_id: req.body.category,
                 description: req.body.description,
-                image_url: req.body.image_url,
+                image_url: req.files[0].filename,
                 price: req.body.price,
                 user_id: res.locals.user.id
             })
@@ -67,7 +68,7 @@ const appsControllers= {
                 name: req.body.name,
                 category_id: req.body.category,
                 description: req.body.description,
-                image_url: req.body.image_url,
+                image_url: req.files[0].filename,
                 price: req.body.price,
                 user_id: res.locals.user.id
             }, {
@@ -81,7 +82,7 @@ const appsControllers= {
                 
             })
             .catch(err => {
-                res.send('Hubo un error, intentalo mas tarde'+ err + "+++++++++" + req.body.category)
+                res.send('Hubo un error, intentalo mas tarde')
             })
         },
 
@@ -104,7 +105,7 @@ const appsControllers= {
             }
         })
                     .then(function(data){
-                        return res.redirect('apps/admin',{apps:data})
+                        return res.redirect('/apps/admin')
                     })
                     .catch(err => {
                         res.send('Hubo un error probar mas tarde')
