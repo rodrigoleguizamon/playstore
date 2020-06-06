@@ -9,7 +9,7 @@
 				<div class="col">
                     <h2 class="encabezado">Agregar Aplicación</h2>     
 					
-                    <form action="/apps/create" method="POST" class="form-crear">
+                    <form action="/apps/create" method="POST" class="form-crear" enctype="multipart/form-data">
                         <div class="form-group">
                             <label for="name">Nombre</label>
                             <input type="text" class="form-control" id="name" name="name">
@@ -35,11 +35,11 @@
 							<input class="form-control" id="price" name="price">
 						</div>
 						<div class="form-group">
-							<label for="image_url">Ingrese la URL de la imagen</label>
-						<input type="text" name="image_url" id="image_url"class="form-control">
+							<label for="image_url">Seleccione la imagen</label>
+						<input type="file" name="image_url" id="image_url"class="form-control">
 						</div><br>
 						
-						<button type="submit" class="btn btn-primary">Guardar</button>
+						<button type="submit" class="btn btn-primary">Crear</button>
 						
 					  </form>
 
