@@ -88,8 +88,9 @@ const appsControllers= {
 
         detail: function(req,res){
         
-            db.Application.findByPk(req.params.id)
+            db.Application.findByPk(req.params.id,{include:[{association:"categories"},{association:"usuarios"}]})
                 .then(data => {
+                    console.log(data.usuarios)
                     res.render('apps/detail', {application:data})
                     
                 })
@@ -112,17 +113,6 @@ const appsControllers= {
                     })
                 
         },
-    
-        mostrarDetalleProducto: function(req,res){
-                //buscar producto id
-            db.Application.findByPk(req.params.id)
-                .then(data => {
-                        return res.render('./apps/detailApp', {application:data})
-                })
-                .catch(err => {
-                        res.send('Hubo un error, intentalo mas tarde')
-                })
-        },
         order:function(req,res){
             db.Application.findByPk(req.params.id)
                 .then(application => {
@@ -133,7 +123,7 @@ const appsControllers= {
                     })
             })
             .then(function(data){
-                return res.redirect('/apps/myApps')
+                return res.render('apps/myApps')
                 
             })
             .catch(err => {

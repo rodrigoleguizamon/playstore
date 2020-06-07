@@ -5,20 +5,9 @@
         <%- include('../partials/header.ejs') %>
         <main>
           <section class="app-list" >
-            <% apps.forEach(function(app) {%>
+            <% apps.forEach(function(applications) {%>
                 <div>
-                  <a href="/apps/detail/<%= app.id %>">
-                    <div class="producto">
-                       <div class="card-body">
-                         <img src="<%= app.image_url%>" class="card-img-top" alt="imagen de producto">
-                         <div class="card-p">
-                           <p class="card-title"><%= app.name%></p>
-                           <p class="card-text"><%= app.categories.name%></p>
-                           <h4 class="card-text">$<%= app.price%></h4>
-                         </div>
-                       </div>
-                     </div>
-                   </a>
+                  <%- include('partials/app.ejs',{applications:applications}) %>
                 </div>
             <% }) %>
           </section>

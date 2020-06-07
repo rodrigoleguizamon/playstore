@@ -16,9 +16,26 @@
                         <article class="col-6" id="art2">
                             <h1><%=  application.name  %></h1>
                             <p class="description">Descripción: <%=  application.description  %></p>
-                            <form action="/apps/order/<%=application.id%>" method="POST">
-                                <button type="submit" class="btn btn-outline-success" style="background-color:  #008000; color: white;">Comprar</button>
-                            </form>
+                            <% if(isAuthenticated) { %>  
+                                <% let count = 0 %>
+                                <% for(let i = 0; i < application.usuarios.length; i++){ %>
+                                    <% if(application.usuarios[i].id == user.id){ %>
+                                        <%count = count + 1;%>
+                                    <% } %>
+                                <% } %>
+                                <% if( count != 0){ %>
+                                    <button class="btn btn-outline-success" style="background-color:  #008000; color: white;" >Instalada</button>
+                                <% }else{ %>
+                                    <form action="/apps/order/<%=application.id%>" method="POST">
+                                        <button type="submit" class="btn btn-outline-success" style="background-color:  #008000; color: white;">Comprar</button>
+                                    </form>
+                                <% } %>
+                            <% }else{ %>
+                                <form action="/apps/order/<%=application.id%>" method="POST">
+                                    <button type="submit" class="btn btn-outline-success" style="background-color:  #008000; color: white;">Comprar</button>
+                                </form>
+                            <% } %>
+                            
                         </article>
                         <article class="col-6" id="art3">
                             <img src="/uploads/<%= application.image_url %>" alt="<%= application.name %>">
