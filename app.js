@@ -7,6 +7,7 @@ var session = require('express-session');
 var {check, validationResult, body} = require('express-validator');
 var authMiddleware = require('./middlewares/authMiddleware');
 var devMiddleware = require('./middlewares/devMiddleware');
+var loggedMiddleware = require('./middlewares/loggedMiddleware');
 var multer = require('multer');
 var fs = require('fs');
 
