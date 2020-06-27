@@ -63,13 +63,18 @@ Application.associate = function(models){
         otherKey: "user_id",
         timestamps:false
     })
-    
     Application.belongsToMany(models.Comment,{
         as: "comentarios",
-        throught: "orders",
+        through: "orders",
         foreignKey: "application_id",
-        otherKey: "order_id",
+        otherKey: "id",
     })
+    Application.hasMany(models.Order,{
+        as: "compras",
+        foreignKey: "id",
+        timestamps:false
+    })
+
 }
 
 return Application;

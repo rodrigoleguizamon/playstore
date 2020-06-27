@@ -40,8 +40,42 @@
                         <article class="col-6" id="art3">
                             <img src="/uploads/<%= application.image_url %>" alt="<%= application.name %>">
                         </article>
+                     
                 </div>
             </section> <br>
+            <section class="row">
+                <div>
+                    <% if(isAuthenticated) { %>  
+                        <% let count = 0 %>
+                        <% for(let i = 0; i < application.usuarios.length; i++){ %>
+                            <% if(application.usuarios[i].id == user.id){ %>
+                                <%count = count + 1;%>
+                            <% } %>
+                        <% } %>
+                        <% if( count != 0){ %>
+                                <% for(let i = 0; i < application.comentarios.length; i++){ %>
+                                    <% if(application.comentarios[i].order_id == application.compras.id){ %>
+                                        <%count = count + 1;%>
+                                    <% } %>
+                                <% } %>
+                                <% if( count == 0){ %>
+                                    <form action="/apps/order/<%=application.id%>" method="POST">
+                                        <button type="submit" class="btn btn-outline-success" style="background-color:  #008000; color: white;">Dejar un comentario</button>
+                                    </form>
+                                <% } %>
+                        <% } %>
+                    <% } %>
+                </div>
+                <div>
+                    <h1>Opiniones:</h1>
+                </div>
+                <article class="col-6" id="art2">
+                    <% for(let i = 0; i < application.comentarios.length; i++){ %>
+                        <p>Puntaje: <%= application.comentarios[i].rating %></p>
+                        <p>Comentario:<%= application.comentarios[i].content %></p>
+                    <% } %>
+                </article><hr>
+            </section>
         </div>
         <%- include('../partials/scripts.ejs') %>
     </body>

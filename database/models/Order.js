@@ -29,6 +29,17 @@ module.exports = (sequelize, dataTypes) => {
 
 const Order = sequelize.define(alias,cols,config);
 
+/*Order.associate = function(models){
+    Order.hasOne(models.Application,{
+        as: "compradas",
+        foreignKey: "application_id",
+    })
+    Order.belongsTo(models.Application,{
+        as: "comments",
+        foreignKey: "id",
+    })
+}*/
+
 return Order;
 
 }

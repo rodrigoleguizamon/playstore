@@ -36,15 +36,15 @@ module.exports = (sequelize, dataTypes) => {
 
 
 const Comment = sequelize.define(alias,cols,config);
-
 Comment.associate = function(models){
-        Application.belongsTo(models.Application,{
-        as: "aplicaciones",
-        throught: "orders",
-        foreignKey: "order_id",
-        otherKey: "application_id",
-    })
+            Comment.belongsTo(models.Application,{
+            as: "aplicaciones",
+            through: "orders",
+            foreignKey: "id",
+            otherKey: "application_id",
+        })
 }
+
 return Comment;
 
 }

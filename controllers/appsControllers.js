@@ -1,13 +1,13 @@
 let db = require('../database/models');
-let Sequelize = db.sequelize;
-const Op = Sequelize.Op
 
 
 const appsControllers= {   
         admin: function(req,res){
             db.Application.findAll({
                 where:{user_id: res.locals.user.id },
-                include:[{association:'categories'}],
+                include:[
+                    {association:'categories'}
+                ]
             })
                 .then(function(data){
                     return res.render('apps/admin',{apps:data})
@@ -88,9 +88,15 @@ const appsControllers= {
 
         detail: function(req,res){
         
-            db.Application.findByPk(req.params.id,{include:[{association:"categories"},{association:"usuarios"}]})
+            db.Application.findByPk(req.params.id,{
+                include:[
+                    {association:"categories"},
+                    {association:"usuarios"},
+                    {association:"comentarios"},
+                    {association:"compras"}
+                ]})
                 .then(data => {
-                    console.log(data.usuarios)
+                    console.log(data.comentarios)
                     res.render('apps/detail', {application:data})
                     
                 })
@@ -134,7 +140,12 @@ const appsControllers= {
         },
         appsList: function(req,res){
             db.Application.findAll({
-            include:[{association:"categories"},{association:"usuarios"}],
+            include:[
+                {association:"categories"},
+                {association:"usuarios"},
+                {association:"comentarios"},
+                {association:"compras"}
+            ],
                 
                 raw:true,
                 nest:true
@@ -147,6 +158,8 @@ const appsControllers= {
                         apps.push(data[i])
                     }
                 }
+                console.log(apps);
+                
                 return res.render('apps/myApps',{apps:apps})
                 })
                 .catch(err => {
